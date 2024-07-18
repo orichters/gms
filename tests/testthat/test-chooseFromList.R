@@ -34,6 +34,8 @@ with_mocked_bindings({ # fail if getLine() is called
                      theList[1])
     expect_identical(chooseFromList(theList, addAllPattern = FALSE, userinput = "  1 -  2  "),
                      theList[1:2])
+    expect_identical(chooseFromList(theList, addAllPattern = FALSE, userinput = "1,,2"),
+                     chooseFromList(theList, addAllPattern = FALSE, userinput = "1:2"))
     expect_identical(unname(chooseFromList(theList, userinput = "1", returnBoolean = TRUE)),
                      rep(TRUE, length(theList)))
     expect_identical(chooseFromList(theList, userinput = toString(length(theList) + 2)),
